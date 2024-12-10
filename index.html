@@ -9,71 +9,122 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      animation: gradientAnimation 10s infinite alternate;
     }
+
+    @keyframes gradientAnimation {
+      0% { background: linear-gradient(135deg, #f6d365, #fda085); }
+      100% { background: linear-gradient(135deg, #fda085, #f6d365); }
+    }
+
     header {
       background-color: #0056b3;
       color: white;
-      padding: 15px;
+      padding: 20px;
       text-align: center;
+      animation: slideDown 1s ease-in-out;
     }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
     .container {
       max-width: 600px;
-      margin: 20px auto;
+      margin: 30px auto;
       padding: 20px;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1.5s ease-in-out;
     }
-    h1 {
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1, h2 {
+      color: #fcfcfc;
       text-align: center;
-      color: #0056b3;
     }
+
+    h2 {
+      margin-top: 20px;
+    }
+
     .form-group {
       margin-bottom: 15px;
     }
+
     label {
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
     }
+
     input[type="text"],
     input[type="email"],
     textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 6px;
+      transition: box-shadow 0.3s ease;
     }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+      border-color: #007bff;
+    }
+
     textarea {
       height: 100px;
     }
+
     .btn {
       display: block;
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background-color: #0056b3;
       color: white;
       text-align: center;
       border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 16px;
-      margin-top: 10px;
+      border-radius: 6px;
+      font-size: 18px;
       cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
+
     .btn:hover {
       background-color: #003d7a;
+      transform: translateY(-3px);
     }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
     .social-icons {
       display: flex;
       justify-content: center;
       margin-top: 20px;
     }
+
     .social-icons a {
-      margin: 0 10px;
+      margin: 0 15px;
       text-decoration: none;
+      transition: transform 0.3s ease;
     }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
     .social-icons img {
       width: 50px;
       height: 50px;
@@ -89,15 +140,15 @@
     <form action="mailto:your-email@example.com" method="POST" enctype="text/plain">
       <div class="form-group">
         <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
       </div>
       <div class="form-group">
         <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
       </div>
       <div class="form-group">
         <label for="message">Your Message:</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message" required placeholder="Write your message"></textarea>
       </div>
       <button type="submit" class="btn">Send Message</button>
     </form>
